@@ -5,23 +5,21 @@ window.onload = () => {
   });
 };
 
-// Клик по бабочкам
-const butterflies = document.querySelectorAll(".magic-butterfly");
-butterflies.forEach(butterfly => {
-  const audio = new Audio('sounds/click.mp3');
+// Клик по изображению
+const magicLayer = document.getElementById("magic-layer");
+const butterflies = magicLayer.querySelector(".magic-butterfly");
+const audio = new Audio('sounds/click.mp3');
 
-  butterfly.addEventListener("click", (e) => {
-    // останавливаем всплытие, чтобы клик не срабатывал на фоне
-    e.stopPropagation();
+magicLayer.addEventListener("click", () => {
+  // показать бабочек
+  butterflies.classList.add("visible");
 
-    // эффект увеличения
-    butterfly.style.transform = 'scale(1.05)';
+  // эффект лёгкого увеличения
+  magicLayer.style.transform = 'scale(1.02)';
 
-    // звук
-    audio.currentTime = 0;
-    audio.play();
+  // звук
+  audio.currentTime = 0;
+  audio.play();
 
-    // возвращаем масштаб
-    setTimeout(() => { butterfly.style.transform = 'scale(1)'; }, 300);
-  });
+  setTimeout(() => { magicLayer.style.transform = 'scale(1)'; }, 300);
 });
