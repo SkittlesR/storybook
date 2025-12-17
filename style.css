@@ -14,8 +14,9 @@
 .image {
   position: relative;
   flex: 0 0 58%;
-  width: 1232px;
-  height: 928px;
+  max-width: 100%;
+  /* сохраняем пропорции картинки */
+  aspect-ratio: 1232 / 928;
   cursor: pointer;
 }
 
@@ -23,20 +24,20 @@
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain; /* Сохраняем пропорции без растяжения */
 }
 
-/* Бабочки */
+/* Бабочки: мерцание + лёгкое движение */
 .magic-butterfly {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transition: transform 0.3s ease;
+  animation: butterflyMove 2s infinite alternate, butterflySparkle 1.5s infinite alternate;
 }
 
-/* Пыль */
+/* Пыль: мерцание */
 .magic-dust {
   position: absolute;
   top: 0;
@@ -48,6 +49,18 @@
 }
 
 @keyframes sparkle {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes butterflyMove {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(2px, -2px); } /* лёгкое движение на пару пикселей */
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes butterflySparkle {
   0% { opacity: 0.7; }
   50% { opacity: 1; }
   100% { opacity: 0.7; }
