@@ -1,27 +1,25 @@
-/* Общие настройки */
 body {
   margin: 0;
   background: #f6f2ec;
   font-family: Georgia, serif;
 }
 
-/* Контейнер разворота */
 .spread {
   display: flex;
   height: 100vh;
   max-width: 1400px;
-
-  margin: 40px auto;     /* отступы сверху/снизу и по центру */
-  padding: 20px;         /* ВАЖНО: внутренний отступ */
-
+  margin: 40px auto;
+  padding: 20px;
   background: white;
   box-sizing: border-box;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
-
 
 /* Левая часть */
 .image {
   flex: 0 0 58%;
+  position: relative; /* Для абсолютного позиционирования бабочек/пыли */
 }
 
 .image img {
@@ -49,7 +47,7 @@ body {
   line-height: 1.6;
 }
 
-/* ЭФФЕКТ ПОЯВЛЕНИЯ */
+/* Эффект появления страницы */
 .hidden {
   opacity: 0;
   transform: translateY(30px);
@@ -61,11 +59,10 @@ body {
   transition: opacity 1s ease, transform 1s ease;
 }
 
-#scene {
+/* Волшебные элементы */
+.magic {
+  position: absolute;
+  width: 50px;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-#scene.active {
-  transform: scale(1.03);
+  transition: transform 0.3s ease, opacity 0.5s ease;
 }
