@@ -59,10 +59,25 @@ body {
   transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Волшебные элементы */
-.magic {
+/* Бабочка */
+.magic-butterfly {
   position: absolute;
-  width: 50px;
+  width: 100px; /* подгони под картинку */
   cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.5s ease;
+  transition: transform 0.3s ease;
+}
+
+/* Пыль */
+.magic-dust {
+  position: absolute;
+  width: 100px; /* подгони под картинку */
+  opacity: 0.7;
+  animation: sparkle 1.5s infinite alternate;
+}
+
+/* Мерцание пыли */
+@keyframes sparkle {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
