@@ -1,9 +1,3 @@
-body {
-  margin: 0;
-  background: #f6f2ec;
-  font-family: Georgia, serif;
-}
-
 /* Контейнер разворота */
 .spread {
   display: flex;
@@ -86,4 +80,18 @@ body {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Адаптация под маленькие экраны */
+@media (max-width: 900px) {
+  .spread {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .image, .text {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+  .text h2 { font-size: 24px; }
+  .text p { font-size: 18px; }
 }
