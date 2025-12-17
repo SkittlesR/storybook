@@ -8,20 +8,22 @@
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   border-radius: 8px;
   box-sizing: border-box;
-  height: auto;
 }
 
 /* Левая часть: изображение + магия */
 .image {
   position: relative;
   flex: 0 0 58%;
-  max-width: 100%;
+  width: 1232px;
+  height: 928px;
+  cursor: pointer;
 }
 
 .base-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 /* Бабочки */
@@ -31,7 +33,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
@@ -43,6 +44,7 @@
   width: 100%;
   height: 100%;
   animation: sparkle 1.5s infinite alternate;
+  pointer-events: none;
 }
 
 @keyframes sparkle {
