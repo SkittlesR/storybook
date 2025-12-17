@@ -1,16 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Интерактивная сказка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <div class="spread hidden">
 
+  <!-- Левая часть: изображение + магия -->
   <div class="image" id="magic-layer">
-    <!-- Основная картинка -->
     <img src="images/spread.png" alt="Иллюстрация" class="base-image">
-
-    <!-- Бабочки (скрыты изначально) -->
     <img src="images/butterfly1.png" class="magic-butterfly">
-
-    <!-- Пыль -->
     <img src="images/dust1.png" class="magic-dust">
   </div>
 
+  <!-- Правая часть: текст -->
   <div class="text">
     <h2>Однажды Лиза проснулась в волшебном лесу</h2>
     <p>
@@ -20,3 +27,7 @@
   </div>
 
 </div>
+
+<script src="script.js"></script>
+</body>
+</html>
