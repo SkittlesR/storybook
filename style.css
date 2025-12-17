@@ -15,7 +15,6 @@
   position: relative;
   flex: 0 0 58%;
   max-width: 100%;
-  /* сохраняем пропорции картинки */
   aspect-ratio: 1232 / 928;
   cursor: pointer;
 }
@@ -24,20 +23,30 @@
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain; /* Сохраняем пропорции без растяжения */
+  object-fit: contain;
 }
 
-/* Бабочки: мерцание + лёгкое движение */
+/* Бабочки: изначально скрыты */
 .magic-butterfly {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  transform: translate(0,0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Видимые бабочки */
+.magic-butterfly.visible {
+  opacity: 1;
+  pointer-events: auto;
   animation: butterflyMove 2s infinite alternate, butterflySparkle 1.5s infinite alternate;
 }
 
-/* Пыль: мерцание */
+/* Пыль */
 .magic-dust {
   position: absolute;
   top: 0;
@@ -55,9 +64,9 @@
 }
 
 @keyframes butterflyMove {
-  0% { transform: translate(0px, 0px); }
-  50% { transform: translate(2px, -2px); } /* лёгкое движение на пару пикселей */
-  100% { transform: translate(0px, 0px); }
+  0% { transform: translate(0px,0px); }
+  50% { transform: translate(2px,-2px); }
+  100% { transform: translate(0px,0px); }
 }
 
 @keyframes butterflySparkle {
@@ -75,38 +84,17 @@
   justify-content: center;
 }
 
-.text h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.text p {
-  font-size: 20px;
-  line-height: 1.6;
-}
+.text h2 { font-size: 28px; margin-bottom: 20px; }
+.text p { font-size: 20px; line-height: 1.6; }
 
 /* Эффект появления */
-.hidden {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s ease, transform 1s ease;
-}
+.hidden { opacity: 0; transform: translateY(30px); }
+.visible { opacity: 1; transform: translateY(0); transition: opacity 1s ease, transform 1s ease; }
 
 /* Адаптация под маленькие экраны */
 @media (max-width: 900px) {
-  .spread {
-    flex-direction: column;
-    padding: 10px;
-  }
-  .image, .text {
-    flex: 1 1 100%;
-    padding: 10px;
-  }
+  .spread { flex-direction: column; padding: 10px; }
+  .image, .text { flex: 1 1 100%; padding: 10px; }
   .text h2 { font-size: 24px; }
   .text p { font-size: 18px; }
 }
