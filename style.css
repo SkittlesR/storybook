@@ -60,3 +60,12 @@ body {
   transform: translateY(0);
   transition: opacity 1s ease, transform 1s ease;
 }
+
+#scene {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#scene.active {
+  transform: scale(1.03);
+}
